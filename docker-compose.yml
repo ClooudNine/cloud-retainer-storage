@@ -1,0 +1,12 @@
+version: '3'
+services:
+  minio:
+    image: quay.io/minio/minio:latest
+    command: server /data --console-address ":3026"
+    environment:
+      - MINIO_SERVER_URL=https://content.retainer.cloud
+      - MINIO_BROWSER_REDIRECT_URL=https://minio.retainer.cloud
+      - MINIO_ROOT_USER=ROOTNAME
+      - MINIO_ROOT_PASSWORD=CHANGEME123
+    volumes:
+      - minio-data:/data
