@@ -2,10 +2,9 @@ version: '3.8'
 services:
   minio:
     image: quay.io/minio/minio
-    command: server /data --console-address ":3026"
+     volumes:
+      - ./data:/data
     ports:
       - "9000:9000"
       - "3026:3026"
-    environment:
-      MINIO_ROOT_USER: "minio99"
-      MINIO_ROOT_PASSWORD: "minio123"
+    command: server /data --console-address ":3026"
