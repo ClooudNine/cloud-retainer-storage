@@ -2,6 +2,8 @@ version: '3.8'
 services:
   minio:
     image: quay.io/minio/minio
+    volumes:
+      - ./cltt3s8aw002dsaa411s2m9wq-data:/data
     ports:
       - "9000:9000"
       - "3026:3026"
